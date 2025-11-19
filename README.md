@@ -1,6 +1,6 @@
-# ProjetWEB
+# Paris entre Amis - L1 Football
 
-# Init Database
+Init Database
 
 ```
 mysql -u root

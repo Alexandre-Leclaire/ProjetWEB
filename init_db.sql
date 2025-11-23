@@ -1,5 +1,5 @@
 CREATE TABLE EQUIPE (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     image_url VARCHAR(250),
     winrate INT,
@@ -7,7 +7,7 @@ CREATE TABLE EQUIPE (
 );
 
 CREATE TABLE `MATCH` (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT PRIMARY KEY,
     equipe1_id INT NOT NULL,
     equipe2_id INT NOT NULL,
     score_equipe1 INT,
@@ -15,7 +15,7 @@ CREATE TABLE `MATCH` (
     match_timestamp DATETIME NOT NULL,
     journee INT NOT NULL,
     status ENUM('READY', 'ONGOING', 'FINISHED') NOT NULL,
-    date_update DATE,
+    date_update DATETIME,
 
     FOREIGN KEY (equipe1_id) REFERENCES EQUIPE(id),
     FOREIGN KEY (equipe2_id) REFERENCES EQUIPE(id)
@@ -29,8 +29,8 @@ CREATE TABLE USER (
     is_admin BOOLEAN DEFAULT FALSE,
     is_banned BOOLEAN DEFAULT FALSE,
     mail_token VARCHAR(250),
-    date_creation DATE NOT NULL,
-    date_update DATE
+    date_creation DATETIME NOT NULL,
+    date_update DATETIME
 );
 
 CREATE TABLE PARI (
